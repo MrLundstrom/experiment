@@ -1,0 +1,182 @@
+<div #top id="top"></div>
+<div class="navbar">
+    <div class="content">
+        <a class="navbar-item" (click)="scroll(top)">Mr.Lundstrom</a>
+        <div class="navbar-items" [ngClass]="{'is-active': showMenu}">
+            <a class="navbar-item" (click)="scrollAndClose(text)">Text<div class="line-animation"></div></a>
+            <a class="navbar-item" (click)="scrollAndClose(images)">Images<div class="line-animation"></div></a>
+            <a class="navbar-item" (click)="scrollAndClose(projects)">Projects<div class="line-animation"></div></a>
+            <a class="navbar-item" (click)="scrollAndClose(contact)">Contact<div class="line-animation"></div>
+            </a>
+        </div>
+        <a class="navbar-toggle" [ngClass]="{'is-active': showMenu}" (click)="toggleMenu()">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </a>
+    </div>
+</div>
+<div class="intro">
+        <p class="quote">Some really cheesy quote</p>
+</div>
+
+<div #text class="centered-content">
+    <div class="content">
+        <h1 class="border">Text</h1>
+        <div class="flex">
+            <div class="flex-item">
+                <h2>Title</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius finibus suscipit.
+                    Vestibulum
+                    nibh
+                    quam,
+                    faucibus quis scelerisque id, ullamcorper vulputate arcu. Nam vel pharetra justo. Suspendisse id
+                    tellus
+                    quis
+                    neque luctus mattis. Morbi sollicitudin lacus vel massa molestie dictum. Sed tincidunt vitae
+                    lorem
+                    in
+                    mollis.
+                    Etiam ultrices tempus ipsum, vitae posuere quam pulvinar eget. Duis pulvinar erat quis
+                    ullamcorper
+                    rutrum.
+                    Nam
+                    maximus ligula eu eleifend tincidunt. Curabitur dapibus purus non diam pharetra ornare.</p>
+            </div>
+            <div class="flex-item">
+                <h2>Title</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius finibus suscipit.
+                    Vestibulum
+                    nibh
+                    quam,
+                    faucibus quis scelerisque id, ullamcorper vulputate arcu. Nam vel pharetra justo. Suspendisse id
+                    tellus
+                    quis
+                    neque luctus mattis. Morbi sollicitudin lacus vel massa molestie dictum. Sed tincidunt vitae
+                    lorem
+                    in
+                    mollis.
+                    Etiam ultrices tempus ipsum, vitae posuere quam pulvinar eget. Duis pulvinar erat quis
+                    ullamcorper
+                    rutrum.
+                    Nam
+                    maximus ligula eu eleifend tincidunt. Curabitur dapibus purus non diam pharetra ornare.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div #images class="centered-content">
+    <div class="content">
+        <h1 class="border">Images</h1>
+        <div class="flex">
+            <div class="flex-item">
+                <div class="image">
+                    <img src="assets/image.jpg">
+                </div>
+            </div>
+            <div class="flex-item">
+                <div class="image got-label">
+                    <img src="assets/image.jpg">
+                    <label>Nice picture!</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div #projects class="centered-content">
+    <div class="fullwidth">
+        <div class="content">
+            <h1 class="border">Projects</h1>
+        </div>
+        <div class="projects">
+            <div class="content">
+                <div class="main" id="projects">
+                    <div class="project" *ngFor="let project of Projects; let id = index"
+                        [ngClass]="{'is-active': id === currentProject}">
+                        <div class="flex">
+                            <div class="flex-item">
+                                <h2>{{project.title}}</h2>
+                                <p>{{project.text}}</p>
+                                <button>Read more...</button>
+                            </div>
+                            <div class="flex-item">
+                                <div class="image">
+                                    <img src="{{project.img}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="buttons">
+                <button (click)="position(id)"
+                    *ngFor="let project of Projects; let id = index;">{{project.title}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div #contact class="centered-content">
+    <div class="content">
+        <h1 class="border">Contact</h1>
+        <div class="form-item full-width got-icon">
+            <input type="text" class="expanded" id="name" required>
+            <fa-icon class="icon" icon="user" [fixedWidth]="true"></fa-icon>
+            <label for="name">Your name</label>
+        </div>
+        <div class="form-item expanded got-icon">
+            <input type="text" class="expanded" id="email" required>
+            <fa-icon class="icon" icon="envelope" [fixedWidth]="true"></fa-icon>
+            <label for="email">Your e-mail</label>
+        </div>
+        <div class="form-item expanded">
+            <textarea class="expanded" id="message" required></textarea>
+            <label for="message">Message</label>
+        </div>
+        <div class="form-item">
+            <button>Send</button>
+        </div>
+
+    </div>
+</div>
+<div class="centered-content">
+    <div class="footer">
+        <div class="content">
+            <div class="flex">
+                <div class="flex-item">
+                    <h2>Contact info</h2>
+                    <p>Location:<br>
+                        Phone:<br>
+                        Email:</p>
+                </div>
+                <div class="flex-item">
+                    <h2>Links</h2>
+                    <div class="links">
+                        <a class="link">Privacy policy</a>
+                        <a class="link">"I am lucky"</a>
+                    </div>
+                </div>
+                <div class="flex-item">
+                    <h2>Other channels</h2>
+                    <div class="flex is-mobile">
+                        <a class="icon white">
+                            <fa-icon [icon]="['fab', 'linkedin-in']" size="3x"></fa-icon>
+                        </a>
+                        <a class="icon white">
+                            <fa-icon [icon]="['fab', 'github']" size="3x"></fa-icon>
+                        </a>
+                        <a class="icon white">
+                            <fa-icon [icon]="['fab', 'twitter']" size="3x"></fa-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h2 class="center-text">© Mr.Lundstrom</h2>
+        </div>
+    </div>
+
+</div>

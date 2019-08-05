@@ -1,0 +1,92 @@
+input,
+textarea {
+  box-sizing: border-box;
+  font-size: 1rem;
+  appearance: none;
+  line-height: 1;
+  padding: 0.25rem;
+  border-radius: 0;
+
+  border-bottom: 1px solid rgba(15, 15, 15, 0.8);
+  border-left: 1px solid rgba(15, 15, 15, 0.8);
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+textarea {
+  resize: vertical;
+  overflow: auto;
+  min-height: 2.5rem !important;
+}
+
+.form-item {
+  margin: 0.75rem;
+  display: flex;
+  flex: none !important;
+  flex-direction: row !important;
+  &.got-icon {
+    .icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0.25rem;
+      z-index: 1;
+      height: 100%;
+      align-items: center;
+      display: flex;
+    }
+    input,
+    label {
+      padding-left: 1.75rem;
+    }
+    input:focus,
+    input:not(:invalid) {
+      ~ label {
+        top: 0;
+        padding-left: 0.25rem;
+        transform: translateY(-80%);
+        font-size: 80%;
+      }
+    }
+  }
+  button {
+    margin: 0;
+  }
+  &.full-width {
+    align-self: stretch;
+  }
+  > .expanded {
+    flex: 1;
+  }
+  textarea ~ label {
+    transform: translateY(0px);
+    top: 0.25rem;
+  }
+  label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    padding: 0.25rem;
+    transition: ease-in-out all 0.25s;
+  }
+
+  input,
+  textarea {
+    border-radius: 0 0.25rem 0 0;
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+  input:focus,
+  input:not(:invalid),
+  textarea:focus,
+  textarea:not(:invalid) {
+    ~ label {
+      top: 0;
+      transform: translateY(-90%);
+      font-size: 80%;
+    }
+  }
+}

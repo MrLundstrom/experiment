@@ -1,1 +1,245 @@
-/* You can add global styles to this file, and also import other style files */
+@import "SCSS/reset.scss";
+@import "SCSS/input.scss";
+@import "SCSS/button.scss";
+@import "SCSS/splash.scss";
+@import "SCSS/navbar.scss";
+@import "SCSS/projects.scss";
+@import "SCSS/text.scss";
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  max-width: 100%;
+  background-color: rgba(240, 240, 240, 0.8);
+  color: rgba(15, 15, 15, 0.8);
+}
+.centered-content {
+  padding-top: 4rem;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0.75rem;
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.flex-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+@media screen and (max-width: 767px) {
+  .flex {
+    flex-direction: column;
+  }
+  .flex.is-mobile {
+    flex-direction: row;
+  }
+}
+
+.image {
+  position: relative;
+  padding: 0.75rem;
+  img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+  &.got-label {
+    label {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      font-size: 75%;
+      text-align: center;
+    }
+  }
+}
+.footer {
+  background-color: rgba(15, 15, 15, 0.8);
+  color: white;
+  align-self: stretch;
+  width: 100%;
+  .flex {
+    .flex-item{
+      align-content:flex-start;
+    }
+    >:first-child {
+      align-items: flex-start;
+    }
+    >:not(:first-child):not(:last-child) {
+      align-items: center;
+    }
+    >:last-child {
+      align-items: flex-end;
+    }
+    @media screen and (max-width: 767px){
+      .flex-item{
+        align-items: flex-start !important;
+      }
+    }
+  }
+}
+.center-text {
+  text-align: center;
+}
+#top {
+  width: 100%;
+  height: 0px;
+}
+.navbar-toggle {
+  padding: 1.5rem;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .line {
+    height: 0px;
+    width: 100%;
+    border: 0.5px solid;
+    transition: transform 0.1s, opacity 0.05s;
+    transform-origin: center left;
+  }
+  &.is-active {
+    .line {
+      width: 137.3%;
+    }
+    :nth-child(1) {
+      transform: rotate(45deg);
+    }
+    :nth-child(2) {
+      opacity: 0;
+    }
+    :nth-child(3) {
+      transform: rotate(-45deg);
+    }
+  }
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+a {
+  &.icon {
+    margin: 0.75rem;
+    &:hover {
+      cursor: pointer;
+    }
+    &.white {
+      color: white;
+      &:hover {
+        color: rgb(200, 200, 200);
+      }
+    }
+    &.black {
+      color: black;
+      &:hover {
+        color: rgb(55, 55, 55);
+      }
+    }
+  }
+}
+.links {
+  margin: 0.75rem;
+  a {
+    margin-bottom: 0.25rem;
+    display: block;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
+.fullwidth {
+  max-width: 100%;
+  width: 100vw;
+}
+
+.intro {
+  padding-top: 4rem;
+  font-size: 3rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 50vh;
+  background: linear-gradient(
+      336deg,
+      rgba(121, 121, 121, 0.06) 0%,
+      rgba(121, 121, 121, 0.06) 82%,
+      rgba(125, 125, 125, 0.06) 82%,
+      rgba(125, 125, 125, 0.06) 100%
+    ),
+    linear-gradient(
+      54deg,
+      rgba(15, 15, 15, 0.01) 0%,
+      rgba(15, 15, 15, 0.01) 57%,
+      rgba(204, 204, 204, 0.01) 57%,
+      rgba(204, 204, 204, 0.01) 100%
+    ),
+    linear-gradient(
+      174deg,
+      rgba(151, 151, 151, 0.02) 0%,
+      rgba(151, 151, 151, 0.02) 87%,
+      rgba(226, 226, 226, 0.02) 87%,
+      rgba(226, 226, 226, 0.02) 100%
+    ),
+    linear-gradient(
+      224deg,
+      rgba(4, 4, 4, 0.02) 0%,
+      rgba(4, 4, 4, 0.02) 15%,
+      rgba(232, 232, 232, 0.02) 15%,
+      rgba(232, 232, 232, 0.02) 100%
+    ),
+    linear-gradient(
+      215deg,
+      rgba(5, 5, 5, 0.05) 0%,
+      rgba(5, 5, 5, 0.05) 32%,
+      rgba(97, 97, 97, 0.05) 32%,
+      rgba(97, 97, 97, 0.05) 100%
+    ),
+    linear-gradient(
+      317deg,
+      rgba(22, 22, 22, 0.06) 0%,
+      rgba(22, 22, 22, 0.06) 56%,
+      rgba(170, 170, 170, 0.06) 56%,
+      rgba(170, 170, 170, 0.06) 100%
+    ),
+    linear-gradient(
+      15deg,
+      rgba(172, 172, 172, 0.1) 0%,
+      rgba(172, 172, 172, 0.1) 55%,
+      rgba(157, 157, 157, 0.1) 55%,
+      rgba(157, 157, 157, 0.1) 100%
+    ),
+    linear-gradient(
+      241deg,
+      rgba(54, 54, 54, 0.06) 0%,
+      rgba(54, 54, 54, 0.06) 34%,
+      rgba(232, 232, 232, 0.06) 34%,
+      rgba(232, 232, 232, 0.06) 100%
+    ),
+    linear-gradient(
+      222deg,
+      rgba(129, 129, 129, 0.08) 0%,
+      rgba(129, 129, 129, 0.08) 91%,
+      rgba(169, 169, 169, 0.08) 91%,
+      rgba(169, 169, 169, 0.08) 100%
+    ),
+    linear-gradient(90deg, rgb(175, 20, 224), rgb(228, 14, 67));
+}

@@ -1,0 +1,93 @@
+.splash-container {
+    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  .center-splash {
+    left: -200vw;
+    top: -200vh;
+    position: absolute;
+    height: 500vh;
+    width: 500vw;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+  }
+  .splash {
+    width: 400vw;
+    height: 400vh;
+    display: flex;
+    flex-direction: row;
+    transition: ease-in-out transform 1.25s;
+    transform-origin: center;
+    transform: rotate(90deg);
+    &.intro {
+      transform: rotate(270deg);
+      .left {
+        .text {
+          transform: rotate(-270deg) translateX(50%);
+        }
+      }
+      .right {
+        .text {
+          transform: rotate(-270deg) translateX(-50%);
+        }
+      }
+    }
+  }
+  .left,
+  .right {
+    width: 200vw;
+    height: 400vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .left {
+    background-color: white;
+    justify-content: flex-end;
+    .text {
+      color: black;
+      transform-origin: right center;
+      transform: translateX(50%);
+    }
+  }
+  .right {
+    background-color: black;
+    justify-content: flex-start;
+    .text {
+      color: white;
+      transform-origin: left center;
+      transform: translateX(-50%);
+    }
+  }
+  .text {
+    transition: ease-in-out transform 1.25s;
+    text-align: center;
+    font-size: 3.5rem;
+    z-index: 2;
+    color: white;
+    transform-origin: center;
+    margin: 0;
+  }
+
+
+// <div class="splash-container">
+// <div class="center-splash">
+//     <div class="splash" [ngClass]="{intro: playIntro}">
+//         <div class="left">
+//             <p class="text">Mr.Lundstrom</p>
+//         </div>
+//         <div class="right">
+//             <p class="text">Mr.Lundstrom</p>
+//         </div>
+//     </div>
+// </div>
+// </div>

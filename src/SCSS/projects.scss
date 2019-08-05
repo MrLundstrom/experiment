@@ -1,0 +1,44 @@
+.projects {
+  position:relative;
+  .content {
+    flex: auto;
+  }
+  .project.is-active{
+    position: relative;
+    left:0;
+    ~ .project{
+      position: absolute;
+      left:100%;
+    }
+  }
+}
+.project {
+  position: absolute;
+  left:-100%;
+  opacity: 0;
+  width:100%;
+  transition: left ease-in-out 0.75s, opacity 0.5s;
+  @media screen and (max-width: 1023px) {
+    .flex {
+      flex-direction: column-reverse;
+    }
+  }
+  &.is-active{
+    opacity: 1;
+  }
+}
+.main {
+  transition: 1s;
+  position: relative;
+  left: 0%;
+  display: flex;
+  flex-wrap: nowrap;
+}
+.buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  button {
+    flex: auto;
+  }
+}
